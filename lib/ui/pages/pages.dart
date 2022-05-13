@@ -6,4 +6,5 @@ export 'cadastro_disciplina.dart';
 export 'cadastro_turma.dart';
 export 'lista_alunos.dart';
 export 'lista_professores.dart';
+export 'lista_disciplinas.dart';
 export 'lista_turmas.dart';

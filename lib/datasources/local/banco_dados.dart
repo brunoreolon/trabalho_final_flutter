@@ -26,7 +26,7 @@ class BancoDados {
       onCreate: (Database db, int version) async {
             await db.execute(AlunoHelper.sqlCreate);
             await db.execute(ProfessorHelper.sqlCreate);
-            // await db.execute(DisciplinaHelper.sqlCreate);
+            await db.execute(DisciplinaHelper.sqlCreate);
             await db.execute(TurmaHelper.sqlCreate);
       }
     );

@@ -116,9 +116,9 @@ class _HomePageState extends State<HomePage> {
                 ),
                 ListTile(
                   title: const Text('Disciplina'),
-                    // onTap: () {
-                    //   _abrirTela(const ListaDisciplinas());
-                    // }
+                  onTap: () {
+                    _abrirTela(const ListaDisciplinas());
+                  }
                 ),
                 ListTile(
                   title: const Text('Turma'),
