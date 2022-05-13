@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:trabalho_final_flutter/datasources/local/aluno_helper.dart';
 import 'package:trabalho_final_flutter/ui/pages/pages.dart';
 
-import '../../components/components.dart';
 import '../../model/model.dart';
+import '../components/components.dart';
 
 class ListaAlunos extends StatefulWidget {
   const ListaAlunos({Key? key}) : super(key: key);

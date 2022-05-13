@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../components/components.dart';
 import '../../datasources/local/local.dart';
 import '../../model/model.dart';
+import '../components/components.dart';
 import 'pages.dart';
 
 class CadastroAluno extends StatefulWidget {
