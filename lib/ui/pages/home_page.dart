@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'pages.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -9,17 +11,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-  void _abrirCadastroAluno() {
-
+  void _abrirTela(tela) {
+    Navigator.push(context, MaterialPageRoute(
+        builder: (context) =>  tela),
+    );
   }
-
-  void _abrirCadastroProfessor() {}
-
-  void _abrirCadastroDisciplina() {}
-
-  void _abrirCadastroTurma() {}
-
-  void _abrirSobre() {}
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +32,9 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.help_outline),
-            onPressed: _abrirSobre,
+            onPressed: () {
+              _abrirTela(const Sobre());
+            },
           ),
         ],
       ),
@@ -57,24 +55,32 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             ExpansionTile(
-              leading: Icon(Icons.add_outlined),
-              title: Text('Cadastros'),
+              leading: const Icon(Icons.add_outlined),
+              title: const Text('Cadastros'),
               children: [
                 ListTile(
-                  title: Text('Aluno'),
-                  onTap: _abrirCadastroAluno,
+                  title: const Text('Aluno'),
+                    onTap: () {
+                      _abrirTela(const CadastroAluno());
+                    }
                 ),
                 ListTile(
-                  title: Text('Professor'),
-                  onTap: _abrirCadastroProfessor,
+                  title: const Text('Professor'),
+                    onTap: () {
+                      _abrirTela(const CadastroProfessor());
+                    }
                 ),
                 ListTile(
-                  title: Text('Disciplina'),
-                  onTap: _abrirCadastroDisciplina,
+                  title: const Text('Disciplina'),
+                    onTap: () {
+                      _abrirTela(const CadastroDisciplina());
+                    }
                 ),
                 ListTile(
-                  title: Text('Turma'),
-                  onTap: _abrirCadastroTurma,
+                  title: const Text('Turma'),
+                    onTap: () {
+                      _abrirTela(const CadastroTurma());
+                    }
                 )
               ],
             ),
@@ -92,32 +98,39 @@ class _HomePageState extends State<HomePage> {
                 )
               ],
             ),
-            const ExpansionTile(
+            ExpansionTile(
               leading: Icon(Icons.list_alt_rounded),
               title: Text('Listar'),
               children: [
                 ListTile(
                   title: Text('Aluno'),
-                  // onTap: ,
+                  onTap: () {
+                    _abrirTela(const ListaAlunos());
+                  }
                 ),
-                ListTile(
+                const ListTile(
                   title: Text('Professor'),
-                  // onTap: ,
+                    // onTap: () {
+                    //   _abrirTela(const ListaProfessores());
+                    // }
                 ),
-                ListTile(
+                const ListTile(
                   title: Text('Disciplina'),
-                  // onTap: ,
+                    // onTap: () {
+                    //   _abrirTela(const ListaDisciplinas());
+                    // }
                 ),
-                ListTile(
+                const ListTile(
                   title: Text('Turma'),
-                  // onTap: ,
+                    // onTap: () {
+                    //   _abrirTela(const ListaTurmas());
+                    // }
                 )
               ],
             ),
           ],
         ),
       ),
-      // body: ,
     );
   }
 }
