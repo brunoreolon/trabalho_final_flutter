@@ -99,29 +99,29 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
             ExpansionTile(
-              leading: Icon(Icons.list_alt_rounded),
-              title: Text('Listar'),
+              leading: const Icon(Icons.list_alt_rounded),
+              title: const Text('Listar'),
               children: [
                 ListTile(
-                  title: Text('Aluno'),
+                  title: const Text('Aluno'),
                   onTap: () {
                     _abrirTela(const ListaAlunos());
                   }
                 ),
-                const ListTile(
-                  title: Text('Professor'),
-                    // onTap: () {
-                    //   _abrirTela(const ListaProfessores());
-                    // }
+                 ListTile(
+                  title: const Text('Professor'),
+                  onTap: () {
+                    _abrirTela(const ListaProfessores());
+                  }
                 ),
-                const ListTile(
-                  title: Text('Disciplina'),
+                ListTile(
+                  title: const Text('Disciplina'),
                     // onTap: () {
                     //   _abrirTela(const ListaDisciplinas());
                     // }
                 ),
-                const ListTile(
-                  title: Text('Turma'),
+                ListTile(
+                  title: const Text('Turma'),
                     // onTap: () {
                     //   _abrirTela(const ListaTurmas());
                     // }

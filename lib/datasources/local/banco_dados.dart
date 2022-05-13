@@ -1,5 +1,6 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'package:trabalho_final_flutter/datasources/local/professor_helper.dart';
 
 import 'local.dart';
 
@@ -24,6 +25,7 @@ class BancoDados {
     return await openDatabase(pathDb, version: 1,
       onCreate: (Database db, int version) async {
             await db.execute(AlunoHelper.sqlCreate);
+            await db.execute(ProfessorHelper.sqlCreate);
       }
     );
   }
