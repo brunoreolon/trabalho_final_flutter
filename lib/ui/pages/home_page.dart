@@ -122,9 +122,9 @@ class _HomePageState extends State<HomePage> {
                 ),
                 ListTile(
                   title: const Text('Turma'),
-                    // onTap: () {
-                    //   _abrirTela(const ListaTurmas());
-                    // }
+                  onTap: () {
+                    _abrirTela(const ListaTurmas());
+                  }
                 )
               ],
             ),
