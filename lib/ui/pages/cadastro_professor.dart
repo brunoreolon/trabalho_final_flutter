@@ -86,14 +86,14 @@ class _CadastroProfessorState extends State<CadastroProfessor> {
                   Expanded(
                     flex: 1,
                     child:
-                    BuildTextField(controller: _dtNascimentoController, left: 16, top: 16, right: 16,
-                        type: TextInputType.number, labelText: 'Dt. Nascimento', border: 6),
+                    BuildInputDatePicker(controller: _dtNascimentoController, left: 16, top: 16, right: 16,
+                        hintText: 'Dt. Nascimento', border: 6),
                   ),
                   Expanded(
                     flex: 1,
                     child:
-                    BuildTextField(controller: _dtMatriculaController, left: 0, top: 16, right: 16,
-                        type: TextInputType.number, labelText: 'Dt. Matrícula', border: 6),
+                    BuildInputDatePicker(controller: _dtMatriculaController, left: 0, top: 16, right: 16,
+                        hintText: 'Dt. Matrícula', border: 6),
                   ),
                 ],
               ),
