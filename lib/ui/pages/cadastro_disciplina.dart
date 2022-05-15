@@ -18,7 +18,9 @@ class CadastroDisciplina extends StatefulWidget {
 class _CadastroDisciplinaState extends State<CadastroDisciplina> {
 
   final _formKey = GlobalKey<FormState>();
+
   final _disciplinaHelper = DisciplinaHelper();
+  ProfessorHelper _professorHelper = ProfessorHelper();
 
   final _codigoController = TextEditingController();
   final _nomeController = TextEditingController();
@@ -28,6 +30,18 @@ class _CadastroDisciplinaState extends State<CadastroDisciplina> {
   String? _dropValueCursos;
   String? _dropValueprofessores;
 
+  List<String> professores = [];
+
+   _initDropDown() async {
+     List<Professor> profs = await _professorHelper.getAll();
+
+    for(var i = 0; i < profs.length; i++) {
+      setState((){
+        professores.add(profs[i].nome);
+      });
+    }
+  }
+
   final cursos = [
     "Análise e Desenv. Sistemas",
     "Administração",
@@ -35,14 +49,6 @@ class _CadastroDisciplinaState extends State<CadastroDisciplina> {
     "Direito",
     "Farmácia",
     "Nutrição"
-  ];
-
-  final professores = [
-    "Everton",
-    "Fernando",
-    "Gemerson",
-    "Djonathan",
-    "Paulo"
   ];
 
   @override
@@ -56,6 +62,8 @@ class _CadastroDisciplinaState extends State<CadastroDisciplina> {
       _cargaHorariaController.text = widget.disciplina!.cargaHoraria;
       _totDiasLetivosController.text = widget.disciplina!.totDiasLetivos;
     }
+
+    _initDropDown();
   }
 
   @override
