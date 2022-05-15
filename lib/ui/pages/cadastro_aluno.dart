@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trabalho_final_flutter/ui/components/build_input_date_picker.dart';
 import '../../datasources/local/local.dart';
 import '../../model/model.dart';
 import '../components/components.dart';
@@ -25,7 +26,7 @@ class _CadastroAlunoState extends State<CadastroAluno> {
   final _dtMatriculaController = TextEditingController();
 
   String? _dropValueCursos;
-  String? _dropValuePeridos;
+  String? _dropValuePeriodos;
 
   final cursos = [
     "Análise e Desenv. Sistemas",
@@ -48,7 +49,13 @@ class _CadastroAlunoState extends State<CadastroAluno> {
   void initState() {
     super.initState();
     if (widget.aluno != null) {
+      _raController.text = widget.aluno!.ra;
+      _cpfController.text = widget.aluno!.cpf;
       _nomeController.text = widget.aluno!.nome;
+      _dtNascimentoController.text = widget.aluno!.dtNascimento;
+      _dtMatriculaController.text = widget.aluno!.dtMatricula;
+      // _dropValueCursos.toString() = widget.aluno!.curso;
+      // _dropValuePeridos.toString() = widget.aluno!.periodo;
     }
   }
 
@@ -80,12 +87,12 @@ class _CadastroAlunoState extends State<CadastroAluno> {
                     flex: 2,
                     child:
                     BuildTextField(controller: _raController, left: 16, top: 16, right: 16,
-                        type: TextInputType.name, labelText: 'RA', border: 6),
+                        type: TextInputType.number, labelText: 'RA', border: 6),
                   ),
                   Expanded(
                     flex: 3,
                     child: BuildTextField(controller: _cpfController, left: 0, top: 16, right: 16,
-                        type: TextInputType.name, labelText: 'CPF', border: 6),
+                        type: TextInputType.number, labelText: 'CPF', border: 6),
                   ),
                 ],
               ),
@@ -102,14 +109,14 @@ class _CadastroAlunoState extends State<CadastroAluno> {
                   Expanded(
                     flex: 1,
                     child:
-                    BuildTextField(controller: _dtNascimentoController, left: 16, top: 16, right: 16,
-                        type: TextInputType.name, labelText: 'Dt. Nascimento', border: 6),
+                      BuildInputDatePicker(controller: _dtNascimentoController, left: 16, top: 16, right: 16,
+                          hintText: 'Dt. Nascimento', border: 6),
                   ),
                   Expanded(
                     flex: 1,
                     child:
-                    BuildTextField(controller: _dtMatriculaController, left: 0, top: 16, right: 16,
-                        type: TextInputType.name, labelText: 'Dt. Matrícula', border: 6),
+                    BuildInputDatePicker(controller: _dtMatriculaController, left: 16, top: 16, right: 16,
+                        hintText: 'Dt. Matrícula', border: 6),
                   ),
                 ],
               ),
@@ -145,10 +152,10 @@ class _CadastroAlunoState extends State<CadastroAluno> {
                         ),
                       ),
                       hint: const Text('Escolha um período'),
-                      value: _dropValuePeridos,
+                      value: _dropValuePeriodos,
                       isExpanded: true,
                       items: periodos.map(_buildMenuItem).toList(),
-                      onChanged: (value) => setState(() => _dropValuePeridos = value),
+                      onChanged: (value) => setState(() => _dropValuePeriodos = value),
                     ),
                   )
                 ],
@@ -180,7 +187,7 @@ class _CadastroAlunoState extends State<CadastroAluno> {
       widget.aluno!.dtNascimento = _dtNascimentoController.text;
       widget.aluno!.dtMatricula = _dtMatriculaController.text;
       widget.aluno!.curso = _dropValueCursos.toString();
-      widget.aluno!.periodo = _dropValuePeridos.toString();
+      widget.aluno!.periodo = _dropValuePeriodos.toString();
 
       _alunoHelper.alterar(widget.aluno!);
     }
@@ -192,7 +199,7 @@ class _CadastroAlunoState extends State<CadastroAluno> {
           dtNascimento: _dtNascimentoController.text,
           dtMatricula: _dtMatriculaController.text,
           curso: _dropValueCursos.toString(),
-          periodo: _dropValuePeridos.toString()
+          periodo: _dropValuePeriodos.toString()
       ));
     }
 
