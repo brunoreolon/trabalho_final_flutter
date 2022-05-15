@@ -28,7 +28,11 @@ class _CadastroProfessorState extends State<CadastroProfessor> {
   void initState() {
     super.initState();
     if (widget.professor != null) {
+      _raController.text = widget.professor!.ra;
+      _cpfController.text = widget.professor!.cpf;
       _nomeController.text = widget.professor!.nome;
+      _dtNascimentoController.text = widget.professor!.dtNascimento;
+      _dtMatriculaController.text = widget.professor!.dtMatricula;
     }
   }
 

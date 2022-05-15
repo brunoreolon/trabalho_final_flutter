@@ -46,7 +46,6 @@ class _ListaAlunosState extends State<ListaAlunos> {
               return _criarLista(snapshot.data as List<Aluno>);
           }
         },
-
       ),
     );
   }
@@ -138,12 +137,12 @@ class _ListaAlunosState extends State<ListaAlunos> {
                 Expanded(
                   flex: 1,
                   child: CustomText(8, 8, 0, 0, alignmentLabel: Alignment.topLeft, alignmentText: TextAlign.left,
-                      label: 'Matrícula', valor: aluno.dtMatricula),
+                      label: 'Nascimento', valor: aluno.dtNascimento),
                 ),
                 Expanded(
                   flex: 1,
                   child: CustomText(8, 8, 0, 0, alignmentLabel: Alignment.topLeft, alignmentText: TextAlign.left,
-                      label: 'Nascimento', valor: aluno.dtNascimento)
+                      label: 'Matrícula', valor: aluno.dtMatricula)
                 )
               ],
             ),
