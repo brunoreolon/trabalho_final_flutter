@@ -11,6 +11,16 @@ class Sobre extends StatelessWidget {
         title: const Text('Sobre'),
         centerTitle: true,
       ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text('Alunos', style:  TextStyle(fontSize: 30)),
+            Text('Bruno Neres Reolon'),
+            Text('Gabriel Sementino')
+          ],
+        ),
+      ),
     );
   }
 }
