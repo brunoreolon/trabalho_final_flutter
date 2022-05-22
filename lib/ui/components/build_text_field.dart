@@ -9,8 +9,9 @@ class BuildTextField extends StatelessWidget {
   final String labelText;
   final TextInputType type;
   final double border;
+  final bool isEnable;
 
-  const BuildTextField({required this.controller, required this.left, required this.right, required this.top,
+  const BuildTextField({this.isEnable = true, required this.controller, required this.left, required this.right, required this.top,
     required this.type, required this.labelText, required this.border,
     Key? key}) : super(key: key);
 
@@ -19,6 +20,7 @@ class BuildTextField extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: left, top: top, right: right),
       child: TextFormField(
+        enabled: isEnable,
         validator: (value) => controller.text.isEmpty ? "Deve ser preenchido!" : null,
         controller: controller,
         keyboardType: type,

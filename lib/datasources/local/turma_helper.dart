@@ -10,7 +10,11 @@ class TurmaHelper {
       ${Turma.codigo_turma_coluna} TEXT,
       ${Turma.curso_coluna} TEXT,
       ${Turma.turno_coluna} TEXT,
-      ${Turma.regime_coluna} TEXT
+      ${Turma.regime_coluna} TEXT,
+      ${Turma.id_aluno_coluna} INTEGER,
+      ${Turma.id_disciplina_coluna} INTEGER,
+      FOREIGN KEY(${Turma.id_aluno_coluna}) REFERENCES TbAluno(codigo),
+      FOREIGN KEY(${Turma.id_disciplina_coluna}) REFERENCES TbDisciplina(codigo)
     )
   ''';
 
@@ -25,7 +29,7 @@ class TurmaHelper {
     Database db = await BancoDados().db;
 
     return db.update(
-        Professor.tabela,
+        Turma.tabela,
         turma.toMap(),
         where: '${Turma.codigo_turma_coluna} = ?',
         whereArgs: [turma.codigoTurma]
@@ -41,13 +45,13 @@ class TurmaHelper {
     );
   }
 
-  Future<Turma?> getTurma(int raTurma) async {
+  Future<Turma?> getTurma(String codigoTurma) async {
     Database db = await BancoDados().db;
 
     List dados = await db.query(
-        Professor.tabela,
+        Turma.tabela,
         where: '${Turma.codigo_turma_coluna} = ?',
-        whereArgs: [raTurma]
+        whereArgs: [codigoTurma]
     );
 
     return Turma.fromMap(dados.first);

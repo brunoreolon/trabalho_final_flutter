@@ -1,3 +1,5 @@
+import 'model.dart';
+
 class Turma {
   static const tabela = 'TbTurma';
   static const codigo_coluna = 'codigo';
@@ -5,19 +7,25 @@ class Turma {
   static const curso_coluna = 'curso';
   static const turno_coluna = 'turno';
   static const regime_coluna = 'regime';
+  static const id_aluno_coluna = 'idAluno';
+  static const id_disciplina_coluna = 'idDisciplina';
 
   int? codigo;
   String codigoTurma;
   String curso;
   String turno;
   String regime;
+  List<Aluno>? alunos = [];
+  List<Disciplina>? disciplinas = [];
 
   Turma({
-    this.codigo,
-    required this.codigoTurma,
-    required this.curso,
-    required this.turno,
-    required this.regime,
+      this.codigo,
+      this.alunos,
+      this.disciplinas,
+      required this.codigoTurma,
+      required this.curso,
+      required this.turno,
+      required this.regime,
   });
 
   factory Turma.fromMap(Map map) {
@@ -27,6 +35,8 @@ class Turma {
       curso: map[curso_coluna],
       turno: map[turno_coluna],
       regime: map[regime_coluna],
+      alunos:  map[id_aluno_coluna],
+      disciplinas: map[id_disciplina_coluna],
     );
   }
 
@@ -37,6 +47,8 @@ class Turma {
       curso_coluna: curso,
       turno_coluna: turno,
       regime_coluna: regime,
+      id_aluno_coluna: alunos,
+      id_disciplina_coluna: disciplinas,
     };
   }
 }

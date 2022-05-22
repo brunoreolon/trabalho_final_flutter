@@ -44,16 +44,19 @@ class AlunoHelper {
     );
   }
 
-  Future<Aluno?> getAluno(int raAluno) async {
+  Future<Aluno?> getAluno(String raAluno) async {
     Database db = await BancoDados().db;
 
-    List dados = await db.query(
-        Aluno.tabela,
-        where: '${Aluno.ra_coluna} = ?',
-        whereArgs: [raAluno]
-    );
-
-    return Aluno.fromMap(dados.first);
+    try {
+      List dados = await db.query(
+          Aluno.tabela,
+          where: '${Aluno.ra_coluna} = ?',
+          whereArgs: [raAluno]
+      );
+      return Aluno.fromMap(dados.first);
+    } catch(e) {
+      return null;
+    }
   }
 
   Future<List<Aluno>> getAll() async {

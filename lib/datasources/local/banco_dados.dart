@@ -1,6 +1,5 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:trabalho_final_flutter/datasources/local/professor_helper.dart';
 
 import 'local.dart';
 

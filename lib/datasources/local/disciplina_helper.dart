@@ -55,6 +55,22 @@ class DisciplinaHelper {
     return Disciplina.fromMap(dados.first);
   }
 
+  Future<List<Disciplina>> getDisciplinasCurso(String curso) async {
+    Database db = await BancoDados().db;
+    List dados= [];
+    try {
+        dados = await db.query(
+          Disciplina.tabela,
+          where: '${Disciplina.curso_coluna} = ?',
+          whereArgs: [curso]
+      );
+    } catch (e) {
+      //
+    }
+
+    return dados.map((e) => Disciplina.fromMap(e)).toList();
+  }
+
   Future<List<Disciplina>> getAll() async {
     Database db = await BancoDados().db;
 

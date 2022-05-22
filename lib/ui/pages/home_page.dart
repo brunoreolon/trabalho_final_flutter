@@ -76,25 +76,46 @@ class _HomePageState extends State<HomePage> {
                       _abrirTela(const CadastroDisciplina());
                     }
                 ),
-                ListTile(
-                  title: const Text('Turma'),
-                    onTap: () {
-                      _abrirTela(const CadastroTurma());
-                    }
+                ExpansionTile(
+                  title: Text('Turma'),
+                  children: [
+                    ListTile(
+                        title: const Text('Turmas'),
+                        onTap: () {
+                          _abrirTela(const CadastroTurma());
+                        }
+                    ),
+                    ListTile(
+                        title: const Text('Alunos'),
+                        onTap: () {
+                          _abrirTela(const CadastroAlunosTurma());
+                        }
+                    ),
+                    ListTile(
+                        title: const Text('Disciplinas'),
+                        onTap: () {
+                          _abrirTela(const CadastroDisciplinasTurma());
+                        }
+                    ),
+                  ],
                 )
               ],
             ),
-            const ExpansionTile(
-              leading: Icon(Icons.assignment),
-              title: Text('Lançamentos'),
+            ExpansionTile(
+              leading: const Icon(Icons.assignment),
+              title: const Text('Lançamentos'),
               children: [
                 ListTile(
-                  title: Text('Notas'),
-                  // onTap: ,
+                  title: const Text('Notas'),
+                  onTap: () {
+                    _abrirTela(const LancamentoNotas());
+                  }
                 ),
                 ListTile(
-                  title: Text('Frequências'),
-                  // onTap: ,
+                  title: const Text('Frequências'),
+                  onTap: () {
+                    _abrirTela(const ListaAlunos());
+                  }
                 )
               ],
             ),
